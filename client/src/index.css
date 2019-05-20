@@ -3,7 +3,7 @@ body {
 	font-family: 'Nunito SemiBold'
 }
 
-#main h1 {
+/* #main h1 {
 	color: #444;
 	text-align: center;
 }
@@ -13,7 +13,7 @@ body {
 	box-sizing: border-box;
 	width: 60%;
 	height: 100%;
-}
+} */
 
 #book-list {
 	padding: 0px;
@@ -31,49 +31,19 @@ body {
 }
 
 form {
-	background: #ffffff;
-	padding: 20px;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 400px;
-}
-
-form .field {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 10px;
-}
-
-form label {
-	text-align: right;
-	padding: 6px;
-}
-
-form select, form input {
-	margin: 4px;
-	padding: 6px;
+	padding: 30px;
+	background: #AD1457;
+	box-shadow: -2px -3px 5px rgba(0, 0, 0, 0.3);
 	box-sizing: border-box;
 }
 
-form button {
-	color: #fff;
-	font-size: 2em;
-	background: #AD1457;
-	border: 0;
-	padding: 0 10px;
-	border-radius: 50%;
-	cursor: pointer;
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-}
 
 #book-details {
 	position: fixed;
-	top: 0;
 	right: 0;
-	width: 40%;
+	top: 30%;
+	bottom: 5px;
+	width: 25%;
 	height: 100%;
 	background: #AD1457;
 	padding: 30px;

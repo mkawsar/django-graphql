@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { getBooksQuery } from './Query'
 import BookDetails from './BookDetails'
+import AddBook from './AddBook'
 
 class BookList extends Component {
 
@@ -29,11 +30,18 @@ class BookList extends Component {
 
 	render() {
 		return (
-			<div>
-				<ul id="book-list">
-					{this.displayBooks()}
-				</ul>
-				<BookDetails bookId={this.state.selected} />
+			<div className="col-sm-12">
+				<div className="col-sm-3">
+					<AddBook />
+				</div>
+				<div className="col-sm-6">
+					<ul id="book-list">
+						{this.displayBooks()}
+					</ul>
+				</div>
+				<div className="col-sm-3">
+					<BookDetails bookId={this.state.selected} />
+				</div>
 			</div>
 		)
 	}

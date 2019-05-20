@@ -56,23 +56,25 @@ class AddBook extends Component {
 
     render() {
         return (
-            <form id="add-book" onSubmit={this.submitAddBookForm.bind(this)}>
-                <div className="field">
+            <form id="add-book" onSubmit={this.submitAddBookForm.bind(this)} className="form-horizontal">
+                <div className="form-group">
                     <label>Book Name: </label>
-                    <input type="text" name="title" onChange={this.handleInputChange} />
+                    <input type="text" className="form-control" name="title" onChange={this.handleInputChange} />
                 </div>
-                <div className="field">
+                <div className="form-group">
                     <label>Generic: </label>
-                    <input type="text" name="generic" onChange={this.handleInputChange} />
+                    <input type="text" className="form-control" name="generic" onChange={this.handleInputChange} />
                 </div>
-                <div className="field">
+                <div className="form-group">
                     <label>Author: </label>
-                    <select name="authorId" onChange={this.handleInputChange}>
+                    <select name="authorId" className="form-control" onChange={this.handleInputChange}>
                         <option>Select An Author</option>
                         {this.getDisplayAuthors()}
                     </select>
                 </div>
-                <button>+</button>
+                <div className="form-group">
+                    <button className="btn btn-success btn-circle pull-right">+</button>
+                </div>
             </form>
         );
     }
@@ -82,4 +84,3 @@ export default compose(
     graphql(getAuthorsQuery, { name: 'getAuthorsQuery' }),
     graphql(createBookMutation, { name: 'createBookMutation' })
 )(AddBook);
-//export default graphql(getAuthorsQuery)(createBookMutation)(AddBook);
