@@ -128,7 +128,10 @@ USE_TZ = True
 
 
 GRAPHENE = {
-    'SCHEMA': 'server.schema.schema'
+    'SCHEMA': 'server.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ]
 }
 
 # Static files (CSS, JavaScript, Images)
