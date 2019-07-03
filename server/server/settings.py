@@ -141,3 +141,14 @@ STATIC_URL = '/static/'
 
 # Cors
 CORS_ORIGIN_ALLOW_ALL = True
+
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+GRAPHQL_JWT = {
+    'JWT_ALLOW_ARGUMENT': True,
+}
+
+CSRF_TRUSTED_ORIGINS = ['*']
