@@ -41,6 +41,9 @@ class CreateBook(graphene.Mutation):
         author_id = graphene.Int(required=True)
 
     def mutate(self, info, title, generic, author_id):
+        user = info.context.user
+        if not user.is_authenticated:
+            raise Exception('You are not logged in!')
         book = Book.objects.create(title=title, generic=generic, author=Author.objects.get(pk=author_id))
         return CreateBook(book=book)
 
