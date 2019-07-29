@@ -33,6 +33,7 @@
         "mobx": "5.9.4",
         "mobx-react": "5.4.4",
         "prop-types": "15.7.2",
+        "react-apollo": "2.5.8",
         "react-hot-loader": "4.8.7",
         "react-mobx-notification-system": "0.1.5",
         "react-router": "5.0.1",
