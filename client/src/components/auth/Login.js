@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import Footer from '../lib/Footer';
+import {AUTH_LOGIN_MUTATION} from '../../graphql/authQuery';
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.state = {
+            username: '',
+            password: ''
+        }
     }
 
     componentDidMount() {
@@ -26,26 +30,43 @@ class Login extends Component {
         return (
             <div className="features-container section-container">
                 <div className="container">
-
                     <div className="row">
                         <div className="col-sm-12 features section-description wow fadeIn">
-                            <form className="form-horizontal" autoComplete="off">
-                                <div className="form-group">
-                                    <label className="control-label col-sm-3">Email</label>
-                                    <div className="col-sm-9">
-                                        <input type="email" name="email" placcholder="Email" className="form-control" required onChange={this.handleInputChange} />
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <label className="control-label col-sm-3">Password</label>
-                                    <div className="col-sm-9">
-                                        <input type="password" name="password" placcholder="Password" className="form-control" required onChange={this.handleInputChange} />
-                                    </div>
-                                </div>
-                                <div className="form-group">
-                                    <button className="btn btn-success">Login</button>
-                                </div>
-                            </form>
+                            <Mutation mutation={AUTH_LOGIN_MUTATION} onCompleted={res => {
+                                console.log(res);
+                            }}>
+                                {(tokenAuth, {loading, data}) => {
+                                    return(
+                                        <form id="create-author" className="form-horizontal" onSubmit={e => {
+                                            e.preventDefault();
+                                            tokenAuth({
+                                                variables: {
+                                                    username: this.state.username,
+                                                    password: this.state.password
+                                                }
+                                            })
+                                            this.state.username = '';
+                                            this.state.password = '';
+                                        }}>
+                                            <div className="form-group">
+                                            <label className="control-label col-sm-3">Username</label>
+                                            <div className="col-sm-9">
+                                                <input type="text" name="username" placcholder="Username" className="form-control" required onChange={e => this.setState({username: e.target.value})} />
+                                            </div>
+                                            </div>
+                                            <div className="form-group">
+                                            <label className="control-label col-sm-3">Password</label>
+                                            <div className="col-sm-9">
+                                                <input type="password" name="password" placcholder="Password" className="form-control" required onChange={e => this.setState({password: e.target.value})} />
+                                            </div>
+                                            </div>
+                                            <div className="form-group">
+                                            <button className="btn btn-success">Login</button>
+                                            </div>
+                                        </form>
+                                    )
+                                }}
+                            </Mutation>
                         </div>
                     </div>
                 </div>

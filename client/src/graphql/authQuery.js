@@ -1,8 +1,8 @@
 import { gql } from "apollo-boost";
 
-export const AUTH_LOGIN = gql`
+export const AUTH_LOGIN_MUTATION = gql`
     mutation tokenAuth($username: String!, $password: String!) {
-        tokenAuth(username: 'mkawsar', password: '123456') {
+        tokenAuth(username: $username, password: $password) {
             token
         }
     }

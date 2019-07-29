@@ -4,9 +4,10 @@ import { HashRouter as Router } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import ReactRouter from './routers';
+import { API_URL } from '../env';
 
 const client = new ApolloClient({
-    uri: 'http://127.0.0.1:8000/graphql'
+    uri: API_URL
 });
 
 ReactDOM.render(
