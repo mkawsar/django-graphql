@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Header from '../lib/Header';
-import Login from '../auth/Login';
+import Header from '../components/lib/Header';
+import Login from '../components/auth/Login';
 
 
 class ReactRouter extends React.Component {
