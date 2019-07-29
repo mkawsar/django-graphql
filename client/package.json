@@ -1,0 +1,39 @@
+{
+    "name": "gql-client",
+    "version": "1.0.0",
+    "description": "React GraphQL client with Django GraphQL Server",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+        "build": "webpack --mode production"
+    },
+    "keywords": [
+        "Graphql",
+        "React",
+        "Apollo"
+    ],
+    "author": "Kawsar Ahmed",
+    "license": "ISC",
+    "dependencies": {
+        "react": "16.8.6",
+        "react-dom": "16.8.6"
+    },
+    "devDependencies": {
+        "@babel/core": "7.4.5",
+        "@babel/plugin-proposal-class-properties": "7.4.4",
+        "@babel/plugin-proposal-decorators": "7.4.4",
+        "@babel/preset-env": "7.4.5",
+        "@babel/preset-react": "7.0.0",
+        "axios": "0.18.0",
+        "babel-loader": "8.0.6",
+        "create-react-class": "^15.6.3",
+        "prop-types": "15.7.2",
+        "react-hot-loader": "4.8.7",
+        "react-mobx-notification-system": "0.1.5",
+        "react-router": "5.0.1",
+        "react-router-dom": "5.0.0",
+        "webpack": "4.32.2",
+        "webpack-cli": "3.3.2",
+        "webpack-dev-server": "3.4.1"
+    }
+}
