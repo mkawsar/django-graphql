@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import NotificationStore from 'react-mobx-notification-system';
 import Footer from '../lib/Footer';
-import { AUTH_LOGIN_MUTATION } from '../../graphql/authQuery';
+import { AUTH_LOGIN_MUTATION } from '../../graphql';
 
 class Login extends Component {
     constructor(props) {

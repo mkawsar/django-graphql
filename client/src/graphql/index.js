@@ -1,5 +1,5 @@
-import { AUTH_LOGIN } from './authQuery';
+import { AUTH_LOGIN_MUTATION } from './authQuery';
 
-export default {
-    AUTH_LOGIN
+export {
+    AUTH_LOGIN_MUTATION
 }
