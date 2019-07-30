@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import NotificationStore from 'react-mobx-notification-system';
 import Footer from '../lib/Footer';
-import {AUTH_LOGIN_MUTATION} from '../../graphql/authQuery';
+import { AUTH_LOGIN_MUTATION } from '../../graphql/authQuery';
 
 class Login extends Component {
     constructor(props) {
@@ -35,8 +36,8 @@ class Login extends Component {
                             <Mutation mutation={AUTH_LOGIN_MUTATION} onCompleted={res => {
                                 console.log(res);
                             }}>
-                                {(tokenAuth, {loading, data}) => {
-                                    return(
+                                {(tokenAuth, { loading, data }) => {
+                                    return (
                                         <form id="create-author" className="form-horizontal" onSubmit={e => {
                                             e.preventDefault();
                                             tokenAuth({
@@ -49,19 +50,19 @@ class Login extends Component {
                                             this.state.password = '';
                                         }}>
                                             <div className="form-group">
-                                            <label className="control-label col-sm-3">Username</label>
-                                            <div className="col-sm-9">
-                                                <input type="text" name="username" placcholder="Username" className="form-control" required onChange={e => this.setState({username: e.target.value})} />
-                                            </div>
-                                            </div>
-                                            <div className="form-group">
-                                            <label className="control-label col-sm-3">Password</label>
-                                            <div className="col-sm-9">
-                                                <input type="password" name="password" placcholder="Password" className="form-control" required onChange={e => this.setState({password: e.target.value})} />
-                                            </div>
+                                                <label className="control-label col-sm-3">Username</label>
+                                                <div className="col-sm-9">
+                                                    <input type="text" name="username" placcholder="Username" className="form-control" required onChange={e => this.setState({ username: e.target.value })} />
+                                                </div>
                                             </div>
                                             <div className="form-group">
-                                            <button className="btn btn-success">Login</button>
+                                                <label className="control-label col-sm-3">Password</label>
+                                                <div className="col-sm-9">
+                                                    <input type="password" name="password" placcholder="Password" className="form-control" required onChange={e => this.setState({ password: e.target.value })} />
+                                                </div>
+                                            </div>
+                                            <div className="form-group">
+                                                <button className="btn btn-success">Login</button>
                                             </div>
                                         </form>
                                     )
