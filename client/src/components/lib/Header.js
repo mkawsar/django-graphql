@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
+import { inject, observer } from 'mobx-react';
+
+@inject("commonStore")
+@withRouter
+@observer
 
 class Header extends Component {
     constructor(props) {
@@ -31,6 +36,7 @@ class Header extends Component {
     // }
 
 
+
     render() {
         return (
             <div>
@@ -43,7 +49,7 @@ class Header extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand" href="javascript:void(0)">Client</a>
+                            <a className="navbar-brand" href="javascript:void(0)">{this.props.commonStore.appName}</a>
                         </div>
                         <div className="collapse navbar-collapse" id="top-navbar-1">
                             <ul className="nav navbar-nav navbar-right">
@@ -66,7 +72,7 @@ class Header extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12 text wow fadeInLeft">
-                                <h1>Client</h1>
+                                <h1>{this.props.commonStore.appName}</h1>
                             </div>
                         </div>
                     </div>

@@ -4,9 +4,11 @@ import { HashRouter as Router } from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import NotificationSystem from 'react-mobx-notification-system';
 import NotificationStore from 'react-mobx-notification-system';
+import { Provider } from "mobx-react";
 import { ApolloProvider } from 'react-apollo';
 import ReactRouter from './routers';
 import { API_URL } from '../env';
+import commonStore from './stores/common.store';
 
 const client = new ApolloClient({
     uri: API_URL,
@@ -19,11 +21,19 @@ const client = new ApolloClient({
     }
 });
 
+const stores = {
+    commonStore
+};
+
+window._____APP_STATE_____ = stores;
+
 ReactDOM.render(
     <ApolloProvider client={client}>
-        <Router>
-            <ReactRouter />
-            <NotificationSystem />
-        </Router>
+        <Provider {...stores}>
+            <Router>
+                <ReactRouter />
+                <NotificationSystem />
+            </Router>
+        </Provider>
     </ApolloProvider>, document.getElementById('app')
 );
