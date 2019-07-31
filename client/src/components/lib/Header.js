@@ -9,7 +9,6 @@ import { inject, observer } from 'mobx-react';
 class Header extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.commonStore.isLoggedIn)
         // this.handleClickLogout = this.handleClickLogout.bind(this);
     }
     active = {
@@ -29,7 +28,7 @@ class Header extends Component {
     // }
 
     renderRegisterButton() {
-        if (this.props.commonStore.isLoggedIn != true) {
+        if (this.props.commonStore.isLoggedIn !== true) {
             return (
                 <li><NavLink to="/register" activeStyle={this.active}>Register</NavLink></li>
             );
