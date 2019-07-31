@@ -1,11 +1,9 @@
-import { observable, action } from 'mobx';
+import {observable, action} from 'mobx';
 
 class AuthStore {
-    @observable token = '';
-
     @action
-    setToken() {
-        console.log('keru')
+    storeTokenInLocalStorage(accessToken) {
+        localStorage.setItem('token', accessToken.tokenAuth.token);
     }
 }
 
