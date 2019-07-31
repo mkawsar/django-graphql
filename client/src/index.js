@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router } from 'react-router-dom';
+import {HashRouter as Router} from 'react-router-dom';
 import ApolloClient from 'apollo-boost';
 import NotificationSystem from 'react-mobx-notification-system';
 import NotificationStore from 'react-mobx-notification-system';
-import { Provider } from "mobx-react";
-import { ApolloProvider } from 'react-apollo';
+import {Provider} from "mobx-react";
+import {ApolloProvider} from 'react-apollo';
 import ReactRouter from './routers';
-import { API_URL } from '../env';
-import commonStore from './stores/common.store';
+import {API_URL} from '../env';
+import {commonStore, authStore} from './stores';
 
 const client = new ApolloClient({
     uri: API_URL,
@@ -22,7 +22,8 @@ const client = new ApolloClient({
 });
 
 const stores = {
-    commonStore
+    commonStore,
+    authStore
 };
 
 window._____APP_STATE_____ = stores;
@@ -31,8 +32,8 @@ ReactDOM.render(
     <ApolloProvider client={client}>
         <Provider {...stores}>
             <Router>
-                <ReactRouter />
-                <NotificationSystem />
+                <ReactRouter/>
+                <NotificationSystem/>
             </Router>
         </Provider>
     </ApolloProvider>, document.getElementById('app')
