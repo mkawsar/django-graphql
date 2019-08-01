@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { inject, observer } from 'mobx-react';
 
-@inject("commonStore")
+@inject("commonStore", "authStore")
 @withRouter
 @observer
 
 class Header extends Component {
     constructor(props) {
         super(props);
-        // this.handleClickLogout = this.handleClickLogout.bind(this);
+        this.handleClickLogout = this.handleClickLogout.bind(this);
     }
     active = {
         fontWeight: "bold",
@@ -22,13 +22,13 @@ class Header extends Component {
         listStyle: "none"
     };
 
-    // handleClickLogout() {
-    //     this.props.authStore.logout();
-    //     this.props.history.replace('/');
-    // }
+    handleClickLogout() {
+        this.props.authStore.userLogout();
+        this.props.history.replace('/');
+    }
 
     renderRegisterButton() {
-        if (this.props.commonStore.isLoggedIn !== true) {
+        if (this.props.authStore.isLoggedIn !== true) {
             return (
                 <li><NavLink to="/register" activeStyle={this.active}>Register</NavLink></li>
             );
@@ -53,8 +53,8 @@ class Header extends Component {
                             <ul className="nav navbar-nav navbar-right">
                                 <li><NavLink exact to="/" activeStyle={this.active}>Home</NavLink></li>
                                 <li><NavLink to="/posts" activeStyle={this.active}>Posts</NavLink></li>
-                                {this.props.commonStore.isLoggedIn === true ? (
-                                    <li><a href="javascript:void(0)">Logout</a></li>
+                                {this.props.authStore.isLoggedIn === true ? (
+                                    <li><a href="javascript:void(0)" onClick={this.handleClickLogout}>Logout</a></li>
                                 ) : (
                                         <li><NavLink to="/login" activeStyle={this.active}>Login</NavLink></li>
                                     )

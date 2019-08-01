@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Mutation } from 'react-apollo';
+import React, {Component} from 'react';
+import {Mutation} from 'react-apollo';
 import {withRouter} from "react-router-dom";
 import {inject, observer} from 'mobx-react';
 import NotificationStore from 'react-mobx-notification-system';
 import Footer from '../lib/Footer';
-import { AUTH_LOGIN_MUTATION } from '../../graphql';
+import {AUTH_LOGIN_MUTATION} from '../../graphql';
 
 @inject("authStore")
 @withRouter
@@ -41,8 +41,9 @@ class Login extends Component {
                         <div className="col-sm-12 features section-description wow fadeIn">
                             <Mutation mutation={AUTH_LOGIN_MUTATION} onCompleted={res => {
                                 this.props.authStore.storeTokenInLocalStorage(res);
+                                this.props.history.replace('/');
                             }}>
-                                {(tokenAuth, { loading, data }) => {
+                                {(tokenAuth, {loading, data}) => {
                                     return (
                                         <form id="create-author" className="form-horizontal" onSubmit={e => {
                                             e.preventDefault();
@@ -58,13 +59,17 @@ class Login extends Component {
                                             <div className="form-group">
                                                 <label className="control-label col-sm-3">Username</label>
                                                 <div className="col-sm-9">
-                                                    <input type="text" name="username" placcholder="Username" className="form-control" required onChange={e => this.setState({ username: e.target.value })} />
+                                                    <input type="text" name="username" placcholder="Username"
+                                                           className="form-control" required
+                                                           onChange={e => this.setState({username: e.target.value})}/>
                                                 </div>
                                             </div>
                                             <div className="form-group">
                                                 <label className="control-label col-sm-3">Password</label>
                                                 <div className="col-sm-9">
-                                                    <input type="password" name="password" placcholder="Password" className="form-control" required onChange={e => this.setState({ password: e.target.value })} />
+                                                    <input type="password" name="password" placcholder="Password"
+                                                           className="form-control" required
+                                                           onChange={e => this.setState({password: e.target.value})}/>
                                                 </div>
                                             </div>
                                             <div className="form-group">
@@ -77,8 +82,8 @@ class Login extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer />
-            </div >
+                <Footer/>
+            </div>
         );
     }
 }
