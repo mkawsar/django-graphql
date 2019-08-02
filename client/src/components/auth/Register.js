@@ -26,11 +26,25 @@ export default class Register extends Component {
                         <div className="col-sm-12 features section-description wow fadeIn">
                             <form className="form-horizontal" autoComplete="off">
                                 <div className="form-group">
-                                    <label className="control-label col-sm-3">Name</label>
+                                    <label className="control-label col-sm-3">First Name</label>
                                     <div className="col-sm-9">
-                                        <input type="text" name="name" placcholder="Name" className="form-control" required/>
+                                        <input type="text" name="f_name" placcholder="First Name" className="form-control" required/>
                                     </div>
                                 </div>
+                                <div className="form-group">
+                                    <label className="control-label col-sm-3">Last Name</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" name="l_name" placcholder="Last Name" className="form-control" required/>
+                                    </div>
+                                </div>
+
+                                <div className="form-group">
+                                    <label className="control-label col-sm-3">Username</label>
+                                    <div className="col-sm-9">
+                                        <input type="text" name="username" placcholder="Username" className="form-control" required/>
+                                    </div>
+                                </div>
+
                                 <div className="form-group">
                                     <label className="control-label col-sm-3">Email</label>
                                     <div className="col-sm-9">
