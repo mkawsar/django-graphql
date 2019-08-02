@@ -1,5 +1,6 @@
-import { AUTH_LOGIN_MUTATION } from './authQuery';
+import { AUTH_LOGIN_MUTATION, USER_REGISTRATION_MUTATION } from './authQuery';
 
 export {
-    AUTH_LOGIN_MUTATION
+    AUTH_LOGIN_MUTATION,
+    USER_REGISTRATION_MUTATION
 }

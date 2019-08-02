@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Mutation} from 'react-apollo';
 import {withRouter} from "react-router-dom";
 import {inject, observer} from 'mobx-react';
-import NotificationStore from 'react-mobx-notification-system';
 import Footer from '../lib/Footer';
 import {AUTH_LOGIN_MUTATION} from '../../graphql';
 
@@ -52,7 +51,7 @@ class Login extends Component {
                                                     username: this.state.username,
                                                     password: this.state.password
                                                 }
-                                            })
+                                            });
                                             this.state.username = '';
                                             this.state.password = '';
                                         }}>
