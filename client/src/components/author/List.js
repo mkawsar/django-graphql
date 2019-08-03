@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import Footer from "../lib/Footer";
 
-class List extends Component{
+class List extends Component {
     componentDidMount() {
         document.title = 'Author List'
     }
 
     render() {
-        return(
+        return (
             <div>
                 <div className="features-container section-container">
                     <div className="container">
@@ -22,7 +22,14 @@ class List extends Component{
                         </div>
 
                         <div className="row">
-                            <div className="col-sm-6 features-box wow fadeInLeft">
+                            <div className="col-sm-12 features-box wow">
+                                <ul className="list-group">
+                                    <li className="list-group-item">These Boots Are Made For Walking</li>
+                                    <li className="list-group-item">Eleanor, Put Your Boots On</li>
+                                    <li className="list-group-item">Puss 'n' Boots</li>
+                                    <li className="list-group-item">Die With Your Boots On</li>
+                                    <li className="list-group-item">Fairies Wear Boots</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
