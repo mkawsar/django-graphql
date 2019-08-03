@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {NavLink, withRouter} from "react-router-dom";
+import {Query} from 'react-apollo';
+import {AUTHORS_QUERY} from '../../graphql';
 import Footer from "../lib/Footer";
 
 class List extends Component {
@@ -11,7 +14,6 @@ class List extends Component {
             <div>
                 <div className="features-container section-container">
                     <div className="container">
-
                         <div className="row">
                             <div className="col-sm-12 features section-description wow fadeIn">
                                 <h2>Author List</h2>
@@ -23,13 +25,25 @@ class List extends Component {
 
                         <div className="row">
                             <div className="col-sm-12 features-box wow">
-                                <ul className="list-group">
-                                    <li className="list-group-item">These Boots Are Made For Walking</li>
-                                    <li className="list-group-item">Eleanor, Put Your Boots On</li>
-                                    <li className="list-group-item">Puss 'n' Boots</li>
-                                    <li className="list-group-item">Die With Your Boots On</li>
-                                    <li className="list-group-item">Fairies Wear Boots</li>
-                                </ul>
+                                <Query query={AUTHORS_QUERY}>
+                                    {({loading, error, data}) => {
+                                        if (loading) {
+                                            return (<div>Loading authors...</div>);
+                                        }
+                                        if (error) {
+                                            return (`Error! ${error.message}`);
+                                        }
+                                        return (
+                                            <ul className="list-group">
+                                                {data.authors.map(author => (
+                                                    <li className="list-group-item" key={author.id}>
+                                                        <NavLink to="/authors">{author.name}</NavLink>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )
+                                    }}
+                                </Query>
                             </div>
                         </div>
                     </div>
