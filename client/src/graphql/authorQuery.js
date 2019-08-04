@@ -9,3 +9,13 @@ export const AUTHORS_QUERY = gql`
         }
     }
 `;
+
+export const CREATE_AUTHOR_MUTATION = gql`
+    mutation createAuthor($name: String!, $age: String!) {
+        createAuthor(name: $name, age: $age) {
+            author {
+                name
+            }
+        }
+    }
+`;

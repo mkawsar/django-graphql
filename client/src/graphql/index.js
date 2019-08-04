@@ -3,11 +3,13 @@ import {
     USER_REGISTRATION_MUTATION
 } from './authQuery';
 import {
-    AUTHORS_QUERY
+    AUTHORS_QUERY,
+    CREATE_AUTHOR_MUTATION
 } from './authorQuery'
 
 export {
     AUTH_LOGIN_MUTATION,
     USER_REGISTRATION_MUTATION,
     AUTHORS_QUERY,
+    CREATE_AUTHOR_MUTATION,
 }

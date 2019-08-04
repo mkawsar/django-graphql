@@ -17,6 +17,7 @@ class List extends Component {
                         <div className="row">
                             <div className="col-sm-12 features section-description wow fadeIn">
                                 <h2>Author List</h2>
+                                <NavLink to="/author/create">Create</NavLink>
                                 <div className="divider-1">
                                     <div className="line"></div>
                                 </div>
