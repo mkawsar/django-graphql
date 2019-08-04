@@ -28,8 +28,12 @@ class List extends Component {
                             <div className="col-sm-12 features-box wow">
                                 <Query query={AUTHORS_QUERY}>
                                     {({loading, error, data}) => {
-                                        if (loading) return "Loading...";
-                                        if (error) return `Error! ${error.message}`;
+                                        if (loading) {
+                                            return (<div>Loading authors...</div>);
+                                        }
+                                        if (error) {
+                                            return (`Error! ${error.message}`);
+                                        }
                                         return (
                                             <ul className="list-group">
                                                 {data.authors.map(author => (

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Mutation} from 'react-apollo';
 import NotificationStore from "react-mobx-notification-system";
 import Footer from "../lib/Footer";
-import {CREATE_AUTHOR_MUTATION} from '../../graphql';
+import {CREATE_AUTHOR_MUTATION, AUTHORS_QUERY} from '../../graphql';
 
 class Create extends Component {
     componentDidMount() {
@@ -32,10 +32,18 @@ class Create extends Component {
                                         level: 'success'
                                     });
                                     this.props.history.replace('/authors');
+                                }} refetchQueries={() => {
+                                    return [{
+                                        query: AUTHORS_QUERY
+                                    }]
                                 }}>
                                     {(createAuthor, {loading, error}) => {
-                                        if (loading) return "Loading...";
-                                        if (error) return `Error! ${error.message}`;
+                                        if (loading) {
+                                            return (<div>Loading authors...</div>);
+                                        }
+                                        if (error) {
+                                            return (`Error! ${error.message}`);
+                                        }
                                         return (
                                             <form id="create-author" className="form-horizontal" onSubmit={e => {
                                                 e.preventDefault();
