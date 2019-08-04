@@ -27,19 +27,15 @@ class Create extends Component {
                             <div className="col-sm-12 features-box wow">
                                 <Mutation mutation={CREATE_AUTHOR_MUTATION} onCompleted={res => {
                                     NotificationStore.addNotification({
-                                        title: 'Registration',
+                                        title: 'Create',
                                         message: 'Author created is successfully!',
                                         level: 'success'
                                     });
                                     this.props.history.replace('/authors');
                                 }}>
                                     {(createAuthor, {loading, error}) => {
-                                        if (loading) {
-                                            return (<div>Loading authors...</div>);
-                                        }
-                                        if (error) {
-                                            return (`Error! ${error.message}`);
-                                        }
+                                        if (loading) return "Loading...";
+                                        if (error) return `Error! ${error.message}`;
                                         return (
                                             <form id="create-author" className="form-horizontal" onSubmit={e => {
                                                 e.preventDefault();
