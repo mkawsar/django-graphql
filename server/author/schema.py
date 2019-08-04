@@ -21,7 +21,7 @@ class Query(graphene.ObjectType):
     author = graphene.Field(AuthorType, id=graphene.Int())
 
     def resolve_authors(self, info, **kwargs):
-        return Author.objects.all()
+        return Author.objects.all().order_by('name')
 
     def resolve_author(self, info, **kwargs):
         author_id = kwargs.get('id')
