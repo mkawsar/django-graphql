@@ -4,7 +4,8 @@ import {
 } from './authQuery';
 import {
     AUTHORS_QUERY,
-    CREATE_AUTHOR_MUTATION
+    CREATE_AUTHOR_MUTATION,
+    AUTHOR_DETAILS_QUERY
 } from './authorQuery'
 
 export {
@@ -12,4 +13,5 @@ export {
     USER_REGISTRATION_MUTATION,
     AUTHORS_QUERY,
     CREATE_AUTHOR_MUTATION,
+    AUTHOR_DETAILS_QUERY
 }

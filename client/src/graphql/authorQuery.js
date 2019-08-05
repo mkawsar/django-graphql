@@ -19,3 +19,13 @@ export const CREATE_AUTHOR_MUTATION = gql`
         }
     }
 `;
+
+export const AUTHOR_DETAILS_QUERY = gql`
+    query author($id: Int!) {
+        author(id: $id) {
+            id
+            name
+            age
+        }
+    }
+`;
