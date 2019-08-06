@@ -11,6 +11,7 @@ class Details extends Component {
             id: parseInt(this.props.match.params.id)
         }
     }
+
     componentDidMount() {
         document.title = 'Author Details';
     }
@@ -28,12 +29,29 @@ class Details extends Component {
                                     <div className="row">
                                         <div className="col-sm-12 features section-description wow fadeIn">
                                             <h2>{data.author.name} Details</h2>
+                                            <small>Age: {data.author.age}</small>
+                                            <br/>
                                             <NavLink to="/author/create">Create</NavLink>
                                             <div className="divider-1">
                                                 <div className="line"></div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div className="row">
+                                        <div className="col-sm-12 features-box wow">
+                                            <ul className="list-group">
+                                                {data.author.books.map(book => (
+                                                    <li className="list-group-item" key={book.id}>
+                                                        <NavLink to={'/author/' + book.id}>{book.title}
+                                                            <span className="badge pull-right">{book.generic}</span>
+                                                        </NavLink>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                 </div>
                             )
                         }}

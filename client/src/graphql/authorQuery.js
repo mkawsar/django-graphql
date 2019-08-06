@@ -26,6 +26,11 @@ export const AUTHOR_DETAILS_QUERY = gql`
             id
             name
             age
+            books {
+                id
+                title
+                generic
+            }
         }
     }
 `;
