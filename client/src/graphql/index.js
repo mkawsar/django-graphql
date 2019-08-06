@@ -8,10 +8,15 @@ import {
     AUTHOR_DETAILS_QUERY
 } from './authorQuery'
 
+import {
+    BOOK_LIST_QUERY
+} from './bookQuery'
+
 export {
     AUTH_LOGIN_MUTATION,
     USER_REGISTRATION_MUTATION,
     AUTHORS_QUERY,
     CREATE_AUTHOR_MUTATION,
-    AUTHOR_DETAILS_QUERY
+    AUTHOR_DETAILS_QUERY,
+    BOOK_LIST_QUERY
 }

@@ -53,7 +53,7 @@ class Header extends Component {
                             <ul className="nav navbar-nav navbar-right">
                                 <li><NavLink exact to="/" activeStyle={this.active}>Home</NavLink></li>
                                 <li><NavLink to="/authors" activeStyle={this.active}>Authors</NavLink></li>
-                                <li><NavLink to="/posts" activeStyle={this.active}>Books</NavLink></li>
+                                <li><NavLink to="/books" activeStyle={this.active}>Books</NavLink></li>
                                 {this.props.authStore.isLoggedIn === true ? (
                                     <li><a href="javascript:void(0)" onClick={this.handleClickLogout}>Logout</a></li>
                                 ) : (
