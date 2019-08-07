@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 import Footer from "../lib/Footer";
 import {Query} from "react-apollo";
 import {BOOK_LIST_QUERY} from '../../graphql';
+import NotificationStore from "react-mobx-notification-system";
 
 class List extends Component {
     componentDidMount() {
@@ -29,16 +30,19 @@ class List extends Component {
                                 <Query query={BOOK_LIST_QUERY}>
                                     {({loading, error, data}) => {
                                         if (loading) return null;
-                                        if (error) return `Error! ${error.message}`;
-                                        return (
-                                            <ul className="list-group">
-                                                {data.bookList.map(book => (
-                                                    <li className="list-group-item" key={book.id}>
-                                                        <NavLink to={'/author/' + book.id}>{book.title}</NavLink>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        );
+                                        if (error) {
+                                            return `Error! ${error.message}`
+                                        } else {
+                                            return (
+                                                <ul className="list-group">
+                                                    {data.bookList.map(book => (
+                                                        <li className="list-group-item" key={book.id}>
+                                                            <NavLink to={'/author/' + book.id}>{book.title}</NavLink>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            );
+                                        }
                                     }}
                                 </Query>
                             </div>
