@@ -9,7 +9,8 @@ import {
 } from './authorQuery'
 
 import {
-    BOOK_LIST_QUERY
+    BOOK_LIST_QUERY,
+    CREATE_BOOK_MUTATION
 } from './bookQuery'
 
 export {
@@ -18,5 +19,6 @@ export {
     AUTHORS_QUERY,
     CREATE_AUTHOR_MUTATION,
     AUTHOR_DETAILS_QUERY,
-    BOOK_LIST_QUERY
+    BOOK_LIST_QUERY,
+    CREATE_BOOK_MUTATION
 }

@@ -1,5 +1,7 @@
 import BookList from "./List";
+import BookCreate from "./Create";
 
 export {
-    BookList
+    BookList,
+    BookCreate
 }

@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import Footer from "../lib/Footer";
 import {Query} from "react-apollo";
 import {BOOK_LIST_QUERY} from '../../graphql';
-import NotificationStore from "react-mobx-notification-system";
+import {inject, observer} from "mobx-react";
 
+@inject("authStore")
+@withRouter
+@observer
 class List extends Component {
     componentDidMount() {
-        document.title = 'Book List'
+        document.title = 'Book List';
     }
 
     render() {
@@ -18,7 +21,9 @@ class List extends Component {
                         <div className="row">
                             <div className="col-sm-12 features section-description wow fadeIn">
                                 <h2>Book List</h2>
-                                <NavLink to="/author/create">Create</NavLink>
+                                {this.props.authStore.isLoggedIn === true ? (
+                                    <NavLink to="/book/create">Create</NavLink>
+                                ) : null }
                                 <div className="divider-1">
                                     <div className="line"></div>
                                 </div>

@@ -14,12 +14,8 @@ class Query(graphene.ObjectType):
     book_list = graphene.List(BookType)
     book = graphene.Field(BookType, id=graphene.Int())
 
-    @login_required
     def resolve_book_list(self, info, **kwargs):
-        user = info.context.user
-        if not user.is_authenticated:
-            raise Exception('Authentication credentials were not provided')
-        return Book.objects.all()
+        return Book.objects.all().order_by('title')
 
     def resolve_book(self, info, **kwargs):
         book_id = kwargs.get('id')

@@ -9,3 +9,13 @@ export const BOOK_LIST_QUERY = gql`
         }
     }
 `;
+
+export const CREATE_BOOK_MUTATION = gql`
+    mutation createBook($title: String!, $generic: String!, $authorId: Int!) {
+        createBook(title: $title, generic: $generic, authorId: $authorId) {
+            book {
+                id
+            }
+        }
+    }
+`;

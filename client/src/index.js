@@ -11,17 +11,6 @@ import ReactRouter from './routers';
 import {API_URL} from '../env';
 import {commonStore, authStore} from './stores';
 
-/*const client = new ApolloClient({
-    uri: API_URL,
-    onError: error => {
-        NotificationStore.addNotification({
-            title: 'Error',
-            message: error.response.errors[0].message,
-            level: 'error'
-        });
-    }
-});*/
-
 /*
     Graphql endpoint url
  */
