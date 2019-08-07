@@ -42,7 +42,7 @@ class List extends Component {
                                                 <ul className="list-group">
                                                     {data.bookList.map(book => (
                                                         <li className="list-group-item" key={book.id}>
-                                                            <NavLink to={'/author/' + book.id}>{book.title}</NavLink>
+                                                            <NavLink to={'/book/details/' + book.id}>{book.title}</NavLink>
                                                         </li>
                                                     ))}
                                                 </ul>

@@ -13,7 +13,8 @@ import {
 } from '../components/author';
 import {
     BookList,
-    BookCreate
+    BookCreate,
+    BookDetails
 } from '../components/book';
 
 
@@ -28,9 +29,10 @@ class ReactRouter extends React.Component {
                     <Route path="/register" header='Register' component={Register}/>
                     <Route path="/authors" header='Authors' component={AuthorList}/>
                     <Route path="/author/create" header='Author Create' component={AuthorCreate}/>
-                    <Route path="/author/:id" header='Author Details' component={AuthorDetails}/>
+                    <Route path="/author/:authorId" header='Author Details' component={AuthorDetails}/>
                     <Route path="/books" header="Book List" component={BookList}/>
                     <Route path="/book/create" header="Book Create" component={BookCreate}/>
+                    <Route path="/book/details/:bookId" header="Book Create" component={BookDetails}/>
                 </Switch>
             </div>
         );
