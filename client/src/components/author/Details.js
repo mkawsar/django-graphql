@@ -8,7 +8,7 @@ class Details extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: parseInt(this.props.match.params.id)
+            id: parseInt(this.props.match.params.authorId)
         }
     }
 
@@ -22,8 +22,8 @@ class Details extends Component {
                 <div className="features-container section-container">
                     <Query query={AUTHOR_DETAILS_QUERY} variables={{id: this.state.id}}>
                         {({loading, error, data}) => {
-                            if (loading) return null;
-                            if (error) return `Error! ${error}`;
+                            if (loading) return (<div>Loading...</div>);
+                            if (error) return error.message;
                             return (
                                 <div className="container">
                                     <div className="row">

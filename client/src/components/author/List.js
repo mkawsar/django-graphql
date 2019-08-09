@@ -3,6 +3,11 @@ import {NavLink, withRouter} from "react-router-dom";
 import {Query} from 'react-apollo';
 import {AUTHORS_QUERY} from '../../graphql';
 import Footer from "../lib/Footer";
+import {inject, observer} from "mobx-react";
+
+@inject("authStore")
+@withRouter
+@observer
 
 class List extends Component {
     componentDidMount() {
@@ -17,7 +22,9 @@ class List extends Component {
                         <div className="row">
                             <div className="col-sm-12 features section-description wow fadeIn">
                                 <h2>Author List</h2>
-                                <NavLink to="/author/create">Create</NavLink>
+                                {this.props.authStore.isLoggedIn === true ? (
+                                    <NavLink to="/author/create">Create</NavLink>
+                                ) : null}
                                 <div className="divider-1">
                                     <div className="line"></div>
                                 </div>
