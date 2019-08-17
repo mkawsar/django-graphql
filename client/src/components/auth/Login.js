@@ -76,7 +76,7 @@ class Login extends Component {
                                                 </div>
                                                 <div className="col-sm-9">
                                                     <button className="btn btn-success pull-left">Login</button>
-                                                    <a href="javascript:void(0)">Forgot Password?</a>
+                                                    <a href="#/password">Forgot Password?</a>
                                                 </div>
                                             </div>
                                         </form>
