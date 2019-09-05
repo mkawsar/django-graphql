@@ -72,7 +72,12 @@ class Login extends Component {
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <button className="btn btn-success">Login</button>
+                                                <div className="col-sm-3">
+                                                </div>
+                                                <div className="col-sm-9">
+                                                    <button className="btn btn-success pull-left">Login</button>
+                                                    <a href="#/password">Forgot Password?</a>
+                                                </div>
                                             </div>
                                         </form>
                                     )

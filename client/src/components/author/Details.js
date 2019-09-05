@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {Query} from 'react-apollo';
 import {AUTHOR_DETAILS_QUERY} from '../../graphql';
 import Footer from "../lib/Footer";
+import {inject, observer} from "mobx-react";
+
+@inject("authStore")
+@withRouter
+@observer
 
 class Details extends Component {
     constructor(props) {
@@ -31,7 +36,9 @@ class Details extends Component {
                                             <h2>{data.author.name} Details</h2>
                                             <small>Age: {data.author.age}</small>
                                             <br/>
-                                            <NavLink to="/author/create">Create</NavLink>
+                                            {this.props.authStore.isLoggedIn === true ? (
+                                                <NavLink to="/author/create">Create</NavLink>
+                                            ) : null}
                                             <div className="divider-1">
                                                 <div className="line"></div>
                                             </div>
