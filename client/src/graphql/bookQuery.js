@@ -19,3 +19,22 @@ export const CREATE_BOOK_MUTATION = gql`
         }
     }
 `;
+
+export const BOOK_DETAILS_QUERY = gql`
+    query book($id: Int!) {
+        book(id: $id) {
+            id
+            title
+            generic
+            author {
+                id
+                name
+                books {
+                    id
+                    title
+                    generic
+                }
+            }
+        }
+    }
+`;
