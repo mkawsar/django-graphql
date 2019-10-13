@@ -1,6 +1,5 @@
 import graphene
 from django.contrib.auth import get_user_model
-from django.contrib.auth import models
 from graphene_django.types import DjangoObjectType
 from graphql_jwt.decorators import login_required
 

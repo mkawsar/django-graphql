@@ -35,6 +35,14 @@ class Header extends Component {
         }
     }
 
+    userList() {
+        if (this.props.authStore.isLoggedIn === true) {
+            return (
+                <li><NavLink to="/user/list" activeStyle={this.active}>Users</NavLink></li>
+            );
+        }
+    }
+
     render() {
         return (
             <div>
@@ -54,6 +62,7 @@ class Header extends Component {
                                 <li><NavLink exact to="/" activeStyle={this.active}>Home</NavLink></li>
                                 <li><NavLink to="/authors" activeStyle={this.active}>Authors</NavLink></li>
                                 <li><NavLink to="/books" activeStyle={this.active}>Books</NavLink></li>
+                                {this.userList()}
                                 {this.props.authStore.isLoggedIn === true ? (
                                     <li><a href="javascript:void(0)" onClick={this.handleClickLogout}>Logout</a></li>
                                 ) : (
