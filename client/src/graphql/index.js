@@ -14,6 +14,12 @@ import {
     BOOK_DETAILS_QUERY
 } from './bookQuery'
 
+// Users query
+
+import {
+    USERS_QUERY,
+} from './userQuery';
+
 export {
     AUTH_LOGIN_MUTATION,
     USER_REGISTRATION_MUTATION,
@@ -22,5 +28,6 @@ export {
     AUTHOR_DETAILS_QUERY,
     BOOK_LIST_QUERY,
     CREATE_BOOK_MUTATION,
-    BOOK_DETAILS_QUERY
+    BOOK_DETAILS_QUERY,
+    USERS_QUERY
 }
