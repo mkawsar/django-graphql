@@ -7,6 +7,7 @@ import users.schema
 
 class Query(author.schema.Query,
             books.schema.Query,
+            users.schema.Query,
             graphene.ObjectType):
     pass
 

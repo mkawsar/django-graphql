@@ -8,6 +8,32 @@ class UserType(DjangoObjectType):
         model = get_user_model()
 
 
+class Query(graphene.AbstractType):
+    users = graphene.List(UserType)
+    user = graphene.Field(UserType, id=graphene.Int())
+    me = graphene.Field(UserType)
+
+    def resolve_users(self, info, **kwargs):
+        return get_user_model().objects.all()
+
+    def resolve_user(self, info, **kwargs):
+        user_id = kwargs.get('id')
+        if user_id is None:
+            return None
+        else:
+            try:
+                return get_user_model().objects.get(pk=user_id)
+            except Exception:
+                return None
+
+    def resolve_me(self, info, **kwargs):
+        user = info.context.user
+        if not user.is_authenticated:
+            raise Exception('Not logged in!')
+
+        return user
+
+
 class CreateUser(graphene.Mutation):
     user = graphene.Field(UserType)
 
