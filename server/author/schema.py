@@ -13,7 +13,7 @@ class AuthorType(DjangoObjectType):
         exclude_fields = ('book_set',)
 
     def resolve_books(self, info, **kwargs):
-        return self.book_set.all()
+        return self.book_set.all().order_by('title')
 
 
 class Query(graphene.ObjectType):
@@ -21,7 +21,7 @@ class Query(graphene.ObjectType):
     author = graphene.Field(AuthorType, id=graphene.Int())
 
     def resolve_authors(self, info, **kwargs):
-        return Author.objects.all()
+        return Author.objects.all().order_by('name')
 
     def resolve_author(self, info, **kwargs):
         author_id = kwargs.get('id')

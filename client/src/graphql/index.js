@@ -1,0 +1,33 @@
+import {
+    AUTH_LOGIN_MUTATION,
+    USER_REGISTRATION_MUTATION
+} from './authQuery';
+import {
+    AUTHORS_QUERY,
+    CREATE_AUTHOR_MUTATION,
+    AUTHOR_DETAILS_QUERY
+} from './authorQuery'
+
+import {
+    BOOK_LIST_QUERY,
+    CREATE_BOOK_MUTATION,
+    BOOK_DETAILS_QUERY
+} from './bookQuery'
+
+// Users query
+
+import {
+    USERS_QUERY,
+} from './userQuery';
+
+export {
+    AUTH_LOGIN_MUTATION,
+    USER_REGISTRATION_MUTATION,
+    AUTHORS_QUERY,
+    CREATE_AUTHOR_MUTATION,
+    AUTHOR_DETAILS_QUERY,
+    BOOK_LIST_QUERY,
+    CREATE_BOOK_MUTATION,
+    BOOK_DETAILS_QUERY,
+    USERS_QUERY
+}
