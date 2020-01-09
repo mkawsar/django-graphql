@@ -3,6 +3,11 @@ import { NavLink, withRouter } from "react-router-dom";
 import Footer from "../lib/Footer";
 import { Query } from 'react-apollo';
 import { USERS_QUERY } from '../../graphql';
+import { inject, observer } from "mobx-react";
+
+@inject("authStore")
+@withRouter
+@observer
 
 class List extends Component {
 
@@ -14,6 +19,9 @@ class List extends Component {
 						<div className="row">
 							<div className="col-sm-12 features section-description wow fadeIn">
 								<h2>User List</h2>
+								{this.props.authStore.isLoggedIn === true ? (
+									<NavLink to="/user/create">Create</NavLink>
+								) : null}
 								<Query query={USERS_QUERY}>
 									{({ loading, data, error }) => {
 										if (loading) {
@@ -27,6 +35,7 @@ class List extends Component {
 												<table className="table table-hover">
 													<thead>
 														<tr>
+															<td>#</td>
 															<td>Name</td>
 															<td>Email</td>
 															<td>Username</td>
@@ -36,6 +45,7 @@ class List extends Component {
 													<tbody>
 														{data.users.map(user => (
 															<tr key={user.id}>
+																<td>{user.id}</td>
 																<td>{user.firstName}</td>
 																<td>{user.email}</td>
 																<td>{user.username}</td>
